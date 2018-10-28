@@ -1,5 +1,5 @@
 @import 'variables';
-.d-flex {
+.u-flex {
   display: flex;
 }
 
@@ -320,5 +320,17 @@
     &-left {
       padding-left: $space-xl;
     }
+  }
+}
+
+// Width
+
+.u-width {
+  &-full {
+    width: 100%;
+  }
+
+  &-100-px {
+    width: 100px;
   }
 }

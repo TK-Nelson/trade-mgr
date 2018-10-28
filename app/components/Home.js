@@ -15,9 +15,6 @@ export default class Home extends Component<Props> {
       <div className="flex-container">
         <LeftNav />
         <Body />
-        <div className={styles.container} data-tid="container">
-
-        </div>
       </div>
     );
   }
