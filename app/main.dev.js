@@ -62,10 +62,10 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728
+    width: 2080,
+    height: 1040,
+    fullscreen:true
   });
-
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
   // @TODO: Use 'ready-to-show' event
