@@ -1,49 +1,54 @@
-body, html{
-  font-family:$font-body;
-  font-size:15px;
-  font-weight:$font-regular;
-  line-height:$line-height;
+body,
+html {
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: $font-regular;
+  line-height: $line-height;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-header;
+  margin: unset;
 }
 
-
-h1{
+h1 {
   font-size: 2.441em;
-  font-weight:$font-regular;
-  line-height:$line-height-header;
+  font-weight: $font-regular;
+  line-height: $line-height-header;
 }
 
-h2{
+h2 {
   color: $gray;
   font-size: 1.953em;
-  font-weight:$font-regular;
-  margin-top:$space-md;
+  font-weight: $font-regular;
+  margin-top: $space-md;
 }
 
-h3{
+h3 {
   font-size: 1.563em;
-  font-weight:$font-regular;
-
+  font-weight: $font-regular;
 }
 
-h4{
+h4 {
   font-size: 1.2em;
-  font-weight:$font-regular;
-  margin-top:$space-sm;
+  font-weight: $font-regular;
+  margin-top: $space-sm;
 }
 
-h5{
+h5 {
   text-transform: uppercase;
-  font-size:$font-sm;
-  font-weight:$font-regular;
-  margin-top:$space-sm;
+  font-size: $font-sm;
+  font-weight: $font-regular;
+  margin-top: $space-sm;
 }
 
 p {
   color: $black;
   font-size: 1em;
-  margin-bottom:$space-md;
+  margin-bottom: $space-md;
 }
