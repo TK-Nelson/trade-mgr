@@ -1,10 +1,10 @@
 import Binance from 'binance-api-node';
 let UserInfo = require("../config/UserInfo.js");
-  const client = Binance();
+  const Binance1 = Binance();
   // Authenticated client, can make signed calls
-  const client2 = Binance({
+  const Binance2 = Binance({
     apiKey: UserInfo.UserInfo.Binance.key,
     apiSecret: UserInfo.UserInfo.Binance.secret,
   });
-let cxns = {client2};
+let cxns = {Binance1, Binance2};
 module.exports.cxns = cxns;

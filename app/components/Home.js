@@ -8,13 +8,18 @@ import Body from './body.jsx';
 type Props = {};
 
 export default class Home extends Component<Props> {
-  props: Props;
+  constructor(props){
+    super(props);
+    this.state ={
+
+    }
+  }
 
   render() {
     return (
       <div className="flex-container">
         <LeftNav />
-        <Body />
+        <Body cxns={this.props.cxns} />
       </div>
     );
   }
