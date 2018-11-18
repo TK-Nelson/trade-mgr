@@ -1,0 +1,48 @@
+.exchange{
+
+  &-balance{
+    margin: 0px $space-lg $space-lg 0px;
+
+    & > div{
+      align-items: center;
+
+      & h5{
+        margin-top: unset;
+      }
+
+      &:first-child{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      }
+    }
+
+    &__body > div > div {
+      align-items: center;
+    }
+
+    &__header{
+
+    }
+
+    &__indicator{
+      background-color: $primary;
+      margin-right: $space-sm;
+      width:$space-sm;
+      height:$space-sm;
+    }
+
+    &--item{
+      align-items: center;
+    }
+  }
+
+  &-wrapper{
+    position: relative;
+    flex-flow:column wrap;
+    height:300px;
+    align-content: flex-start;
+    overflow: auto;
+
+  }
+
+
+}

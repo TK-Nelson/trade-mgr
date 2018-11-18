@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
-import AccountSummary from './accountSummary';
+import AccountSummary from './accountSummary/accountSummary';
+let UserInfo = require("../config/UserInfo.js");
 
 
 export default class Body extends React.Component{

@@ -18,7 +18,7 @@ h6 {
 
 h1 {
   font-size: 2.441em;
-  font-weight: $font-regular;
+  font-weight: $font-light;
   line-height: $line-height-header;
 }
 
@@ -27,6 +27,7 @@ h2 {
   font-size: 1.953em;
   font-weight: $font-regular;
   margin-top: $space-md;
+
 }
 
 h3 {
@@ -43,8 +44,9 @@ h4 {
 h5 {
   text-transform: uppercase;
   font-size: $font-sm;
-  font-weight: $font-regular;
+  font-weight: $font-bold;
   margin-top: $space-sm;
+  letter-spacing:1.2;
 }
 
 p {
