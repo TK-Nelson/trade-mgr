@@ -26,28 +26,8 @@ export default class AccountSummary extends React.Component{
 
 
   getInfo = () => {
-    this.props.cxns.Binance2.accountInfo()
-    .then((res) => {this.setState({accountInfo:res});})
-    .then(async (error) => {
-      this.props.cxns.binance.balance((error, balances) => {
+    
 
-        if ( error ) return console.error(error);
-        var gtz=[];
-        for (var x in balances){
-          if (balances[x].available > 0){
-            gtz[x] =parseFloat(balances[x].available) + parseFloat(balances[x].onOrder);
-          }
-        }
-        console.log(gtz);
-        this.setState({balances:gtz});
-        // console.log('Balances Keys', Object.keys(balances));
-        // console.log(balances.keysObject.keys(balances).available);
-        return gtz;
-      });
-    })
-    .then((gtz) => {
-
-    });
   }
 
 

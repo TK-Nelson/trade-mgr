@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../../constants/routes';
-var DoughnutChart = require("react-chartjs").Doughnut;
+import { Consumer } from '../globalInfo/prices';
 
 
+var DoughnutChart = require('react-chartjs').Doughnut;
 
 export default class TotalAllocation extends React.Component{
   constructor(props){
@@ -54,15 +55,24 @@ render() {
 
 
   return (
-    <div className="u-flex-1 u-flex-col u-push-md-left">
-      <div className="u-flex-1">
-        <h5>Testing</h5>
-      </div>
-      <div className="u-flex-2">
-        <h5>Pie Chart</h5>
-        <DoughnutChart data={this.data3()} options={this.state.chartOptions}/>
-      </div>
-    </div>
+    <Consumer>
+      {(data) => (
+
+        <div className="u-flex-1 u-flex-col u-push-md-left">
+          <div className="u-flex-1">
+            <h5>Testing</h5>
+          </div>
+          <div className="u-flex-2">
+            <h5>Pie Chart</h5>
+            {console.log('data: ', data)}
+            <DoughnutChart data={this.data3()} options={this.state.chartOptions}/>
+          </div>
+        </div>
+
+      )}
+    </Consumer>
+
+
 
     )
   }

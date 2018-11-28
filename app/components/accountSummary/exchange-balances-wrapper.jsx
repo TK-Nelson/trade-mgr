@@ -23,9 +23,7 @@ render() {
         <ExchangeBalance />
         <ExchangeBalance />
         <ExchangeBalance />
-        <ExchangeBalance />
-        <ExchangeBalance />
-        <ExchangeBalance />
+
       </div>
 
     )
