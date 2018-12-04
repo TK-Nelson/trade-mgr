@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import routes from '../../constants/routes';
+import React from 'react';
 import ExchangeBalance from './exchange-balance';
 
 export default class ExchangeBalancesWrapper extends React.Component{

@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import routes from '../../constants/routes';
+import React from 'react';
 import { Consumer } from '../globalInfo/prices';
 
 
-var DoughnutChart = require('react-chartjs').Doughnut;
+const DoughnutChart = require('react-chartjs').Doughnut;
 
 export default class TotalAllocation extends React.Component{
   constructor(props){
@@ -15,7 +13,7 @@ export default class TotalAllocation extends React.Component{
     }
   }
 
-    data3 = () => {
+    data3 =()=> {
           return [
           {
               value: 24,

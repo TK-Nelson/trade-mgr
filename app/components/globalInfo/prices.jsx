@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../../constants/routes';
+const axios = require('axios');
 let binance_api  = require('../../config/cxns');
+let UserInfo = require("../../config/UserInfo.js");
+
 
 
 export const GlobalContext = React.createContext()
 export const Consumer = GlobalContext.Consumer
 const Provider = GlobalContext.Provider
+
+
+var AccountBallance = function(ticker, value_in){
+  this.ticker = ticker;
+  this.value_in = value_in;
+}
+
 
 export default class GlobalInfo extends React.Component{
   constructor(props){
@@ -16,13 +26,30 @@ export default class GlobalInfo extends React.Component{
       loading: true,
       data: {
         accountInfo:'',
-        balance_gtz:[]
+        binance:{
+          balance_gtz:[],
+          subtotal:''
+        }
       }
     }
   }
 
   networkRequest(){
      // Remove setTimeout and replace with a networkRequest
+     // setInterval(() =>{
+     //
+     // }, 10000)
+
+
+     axios.get(("https://api.nomics.com/v1/prices?key=")+UserInfo.UserInfo.Nomics.key)
+       .then((res, error) => {
+         var sortedPrices=[];
+         for (var x in res.data){
+           sortedPrices[res.data[x].currency]=res.data[x].price
+         }
+         console.log('sortedPrices: ', sortedPrices)
+     })
+
     setTimeout(() => {
       this.getInfo()
       this.setState({
@@ -38,11 +65,15 @@ export default class GlobalInfo extends React.Component{
   getInfo = () => {
     binance_api.cxns.Binance2.accountInfo()
     .then((res) => {
-      this.setState({data:{
+      this.setState(
+        {data:{
         ...this.state.data,
-        accountInfo:res}
-      });
+        binance:{
+          ...this.state.data.binance,
+          accountInfo:res}
+     }});
     })
+
     .then(async (error) => {
       binance_api.cxns.binance.balance((error, balances) => {
 
@@ -57,9 +88,10 @@ export default class GlobalInfo extends React.Component{
         this.setState(
           {data:{
             ...this.state.data,
-           balance_gtz:gtz}
-         });
-
+            binance:{
+              ...this.state.data.binance,
+              balance_gtz:gtz}
+         }});
       });
     })
   }
