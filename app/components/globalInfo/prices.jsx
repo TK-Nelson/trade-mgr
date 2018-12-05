@@ -12,12 +12,6 @@ export const Consumer = GlobalContext.Consumer
 const Provider = GlobalContext.Provider
 
 
-var AccountBallance = function(ticker, value_in){
-  this.ticker = ticker;
-  this.value_in = value_in;
-}
-
-
 export default class GlobalInfo extends React.Component{
   constructor(props){
     super(props);
@@ -27,6 +21,7 @@ export default class GlobalInfo extends React.Component{
       data: {
         accountInfo:'',
         binance:{
+          conversion:[],
           balance_gtz:[],
           subtotal:''
         }
@@ -34,21 +29,17 @@ export default class GlobalInfo extends React.Component{
     }
   }
 
+
+  componentDidMount(){
+      this.networkRequest()
+  }
+
   networkRequest(){
      // Remove setTimeout and replace with a networkRequest
-     // setInterval(() =>{
-     //
-     // }, 10000)
+     setInterval(() =>{
+       this.getPriceInBTC()
+     }, 10000)
 
-
-     axios.get(("https://api.nomics.com/v1/prices?key=")+UserInfo.UserInfo.Nomics.key)
-       .then((res, error) => {
-         var sortedPrices=[];
-         for (var x in res.data){
-           sortedPrices[res.data[x].currency]=res.data[x].price
-         }
-         console.log('sortedPrices: ', sortedPrices)
-     })
 
     setTimeout(() => {
       this.getInfo()
@@ -58,8 +49,24 @@ export default class GlobalInfo extends React.Component{
     }, 3000)
   }
 
-  componentDidMount(){
-      this.networkRequest()
+
+  getPriceInBTC = () => {
+    axios.get(("https://api.nomics.com/v1/prices?key=")+UserInfo.UserInfo.Nomics.key)
+      .then((res) => {
+        var priceInBTC=[];
+        for (var x in res.data){
+          priceInBTC[res.data[x].currency] = res.data[x].price
+        }
+        this.setState(
+          {data:{
+            ...this.state.data,
+            binance:{
+              ...this.state.data.binance,
+              conversion:priceInBTC
+            }
+          }}
+        );
+    })
   }
 
   getInfo = () => {
