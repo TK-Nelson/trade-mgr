@@ -13,7 +13,7 @@ export default class TotalAllocation extends React.Component{
     }
   }
 
-    data3 =()=> {
+    pieData = () => {
           return [
           {
               value: 24,
@@ -55,7 +55,6 @@ render() {
   return (
     <Consumer>
       {(data) => (
-
         <div className="u-flex-1 u-flex-col u-push-md-left">
           <div className="u-flex-1">
             <h5>Testing</h5>
@@ -63,7 +62,7 @@ render() {
           <div className="u-flex-2">
             <h5>Pie Chart</h5>
             {console.log('data: ', data)}
-            <DoughnutChart data={this.data3()} options={this.state.chartOptions}/>
+            <DoughnutChart data={this.pieData()} options={this.state.chartOptions}/>
           </div>
         </div>
 

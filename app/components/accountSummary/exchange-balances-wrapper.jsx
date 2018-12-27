@@ -1,5 +1,7 @@
 import React from 'react';
 import ExchangeBalance from './exchange-balance';
+import { Consumer } from '../globalInfo/prices';
+
 
 export default class ExchangeBalancesWrapper extends React.Component{
   constructor(props){
@@ -9,21 +11,18 @@ export default class ExchangeBalancesWrapper extends React.Component{
     }
   }
 
-
 render() {
 
   return (
-
+    <Consumer>
+      {(data) => (
       <div className="exchange-wrapper u-flex u-flex-col">
-        <ExchangeBalance />
-        <ExchangeBalance />
-        <ExchangeBalance />
-        <ExchangeBalance />
-        <ExchangeBalance />
-        <ExchangeBalance />
+        {console.log("data in EBWrapper: ",Object.entries(data))}
+        <ExchangeBalance name ="Binance" total="$15000"/>
 
       </div>
-
+    )}
+  </Consumer>
     )
   }
 }
