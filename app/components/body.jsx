@@ -19,7 +19,6 @@ export default class Body extends React.Component{
     return (
       <div className="body__container u-push-md u-width-full" id="body" data-tid="container">
         <AccountSummary cxns= {this.props.cxns}/>
-
       </div>
     );
   }
